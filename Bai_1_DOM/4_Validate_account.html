@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate account</title>
+</head>
+<body>
+    <script>
+        let accountPattern = /^[_a-z0-9]{6,}$/
+        function isCorrectAccount(str){
+            if(accountPattern.test(str)){
+                console.log("Account hợp lệ");
+            }else {
+                console.log("Account không hợp lệ")
+            }
+        }
+        isCorrectAccount("123abc");
+        isCorrectAccount("_abc123")
+        isCorrectAccount("______");
+        isCorrectAccount(".@");
+        isCorrectAccount("abcde")
+    </script>
+</body>
+</html>

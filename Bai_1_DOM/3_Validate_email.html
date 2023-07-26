@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate email</title>
+</head>
+<body>
+    <script>
+        let emailPattern =/^([A-z0-9]+)@([A-z0-9]+).([A-z0-9]+)$/
+        function isEmail(str){
+            let newStr = str.trim();
+            if(emailPattern.test(newStr)){
+                console.log("Email hợp lệ");
+            }else{
+                console.log("Email không hợp lệ")
+            }
+        }
+        isEmail("a@gmail.com");
+        isEmail("@#abc@gmail.com")
+        isEmail("ab@gmail.")
+ 
+ </script>
+</body>
+</html>
