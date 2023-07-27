@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        regexp = /^(\d{5})-(\d{4})$/
+        regexp = /^\d{5}-\d{4}$/;
         function is_usZipCode(str){
             if(regexp.test(str)){
                 console.log("true");
