@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        let emailPattern =/^([A-z0-9]+)@([A-z0-9]+).([A-z0-9]+)$/
+        let emailPattern =/^[A-z0-9]+@[A-z0-9]+\.[A-z0-9]+$/
         function isEmail(str){
             let newStr = str.trim();
             if(emailPattern.test(newStr)){
