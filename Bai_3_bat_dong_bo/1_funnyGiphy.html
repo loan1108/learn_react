@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giphy party</title>
+    <style>
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      h1 {
+        color: white;
+      }
+      #btnArea input,
+      button {
+        display: inline-block;
+        height: 50px;
+      }
+      #searchBtn {
+        background-color: gray;
+        color: white;
+      }
+      #removeBtn {
+        background-color: orange;
+        color: white;
+      }
+      #results{
+        text-align: left;
+      }
+      #results img{
+        width:200px;
+        height:200px
+        
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>GIPHY PARTY</h1>
+    <div id="btnArea">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Enter a word term"
+      />
+      <button id="searchBtn" type="button" onclick="searchGiphy()">
+        Search Giphy
+      </button>
+      <button id="removeBtn" type="button" onclick="removeImages()">
+        Remove Images
+      </button>
+    </div>
+
+    <div id="results"  >
+      
+    </div>
+
+    <script>
+      let searchKey = document.querySelector("#search");
+      let results = document.querySelector("#results");
+      function searchGiphy() {
+        $.ajax({
+          url: `https://api.giphy.com/v1/gifs/search?q=${searchKey.value}&api_key=8BGXv0qbO7M3cQpWxVF6dvuEfUIqTOo0`,
+          type: "GET",
+          data: {},
+          success: function (response) {
+            console.log(response);
+            const newImg = document.createElement("img");
+            newImg.src = `${response.data[0].images.original.url}`;
+            results.append(newImg);
+            searchKey.value ="";
+          },
+          error: function (jqXHR) {
+            alert("Not founded") ;
+          },
+        });
+      }
+      function removeImages(){
+        results.innerHTML="";
+      }
+    </script>
+  </body>
+</html>
