@@ -7,8 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <>
-    <div style={{ backgroundColor: "green", textAlign: "center" }}>
-    <h3>Conditional Rendering</h3> </div>
+    {/* <div style={{ backgroundColor: "green", textAlign: "center" }}>
+    <h3>Conditional Rendering</h3> </div> */}
     
     <App />
  </>
