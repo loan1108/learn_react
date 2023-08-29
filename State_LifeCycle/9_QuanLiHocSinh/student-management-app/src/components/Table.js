@@ -21,8 +21,8 @@ export default class Table extends Component {
                     <td>{student.phone}</td>
                     <td>{student.email}</td>
                     <td>
-                        <button type ="button" onClick={()=>editStudent(student)}>Edit</button>
-                        <button type ="button" >Delete</button>
+                        <button type ="button" onClick={()=>editStudent(student,data.indexOf(student))}>Edit</button>
+                        <button type ="button" onClick ={()=>deleteStudent(data.indexOf(student))} >Delete</button>
                     </td>
                 </tr>
             )}
