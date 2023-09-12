@@ -33,7 +33,7 @@ export default class App extends Component {
         <div style={{ backgroundColor: "green", textAlign: "center" }}>
           <h3>Conditional Rendering</h3>{" "}
         </div>
-        <button type="button" onClick={this.expandContent}>{isExpand?"Xem giới thiệu":"Đóng giới thiệu"}</button>
+        <button type="button" onClick={this.expandContent}>{isExpand?"Đóng giới thiệu":"Xem giới thiệu"}</button>
 
         {isExpand&&
         <div>
