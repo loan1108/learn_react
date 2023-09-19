@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ErrorMessage, Form, Formik, Field } from "formik";
 import './index.css';
-import FormYTe from './components/FormYTe';
-import Address from './components/Address';
-import ThongTinSangLoc from './components/ThongTinSangLoc';
+import App from './App';
+// import FormYTe from './components/FormYTe';
+// import Address from './components/Address';
+// import ThongTinSangLoc from './components/ThongTinSangLoc';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FormYTe />
-    <Address/>
-    <ThongTinSangLoc/>
+    <App/>
 
   </React.StrictMode>
 );
