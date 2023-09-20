@@ -16,7 +16,6 @@ export default function App() {
   }
   function handleSubmit(e) {
     // e.preventDefault();
-    console.log(chooseBook)
     const newData = [...data];
     if(chooseBook ===null){
       
@@ -28,7 +27,6 @@ export default function App() {
       setData(newData);
     }else{
       const index = data.findIndex(book=>book.id ===chooseBook);
-      console.log(index)
       newData[index].title = form.title;
       newData[index].number = form.number;
       setData(newData)
@@ -82,7 +80,7 @@ export default function App() {
                 onChange={handleChange}
               />
               {errors&&errors.title &&(
-                <p>{errors.title}</p>
+                <p className="error">{errors.title}</p>
               )}
             </div>
             <div>
@@ -95,7 +93,7 @@ export default function App() {
                 onChange={handleChange}
               />
               {errors&&errors.number &&(
-                <p>{errors.number}</p>
+                <p className="error">{errors.number}</p>
               )}
             </div>
             <br />
