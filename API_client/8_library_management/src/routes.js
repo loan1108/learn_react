@@ -1,13 +1,13 @@
 const routes ={
     api:{
         books:{
-            list:"/books",
+            list:"/",
         }
     },
     web:{
         dashboard:"/",
-        book:{
-            index:"id"
+        books:{
+            index:"/"
         }
 
     }
