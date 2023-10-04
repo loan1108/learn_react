@@ -12,16 +12,14 @@
       "name": "Richard",
       "image": "https://v2.convertapi.com/d/yyxkdx7rrfbmi3gan92vn08kd14537sp",
       "email": "richard@gmail.com",
-      "phone": "0912123123",
-     
+      "phone": "0912123123"
     },
     {
       "id": 3,
       "name": "Beck update",
       "image": "https://v2.convertapi.com/d/7lg49iqes6rl1r85vvzinfa2pduymb0i",
       "email": "beck@gmail.com",
-      "phone": "0912123121",
-      
+      "phone": "0912123121"
     },
     {
       "name": "Nguyễn Văn A",
@@ -31,9 +29,9 @@
       "id": 4
     },
     {
-      "name": "Len Meyers",
-      "phone": 10,
-      "email": "caqiw@mailinator.com",
+      "name": "Giacomo Gallegos update",
+      "phone": 79,
+      "email": "domavyruky@mailinator.com",
       "image": "",
       "id": 5
     }

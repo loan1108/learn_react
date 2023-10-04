@@ -50,8 +50,9 @@ export default function InforUpdation() {
   return (
     <div style={{ margin: "20px" }}>
       <h1>Edit contact</h1>
-      {/* <Formik
+      <Formik
         initialValues={user}
+        enableReinitialize
         validationSchema={userSchema}
         onSubmit={(values, formState) => {
           console.log("test:", values);
@@ -98,7 +99,7 @@ export default function InforUpdation() {
                 name="phone"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                values={values.phone}
+                value={values.phone}
               />
               {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
             </div>
@@ -107,51 +108,8 @@ export default function InforUpdation() {
             </button>
           </form>
         )}
-      </Formik> */}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <div>
-            <label htmlFor="name">Name</label>
-          </div>
-
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-          />
-          {/* {errors.name && <p style={{ color: "red" }}>{errors.name}</p>} */}
-        </div>
-        <div className="mb-3">
-          <div>
-            <label htmlFor="email">Email</label>
-          </div>
-
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            value={user.email}
-          />
-          {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
-        </div>
-        <div className="mb-3">
-          <div>
-            <label htmlFor="phone">Phone</label>
-          </div>
-
-          <input
-            type="number"
-            name="phone"
-            onChange={handleChange}
-            value={user.phone}
-          />
-          {/* {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>} */}
-        </div>
-        <button type="submit" className="btn btn-info">
-          Save
-        </button>
-      </form>
+      </Formik>
+      
     </div>
   );
 }
