@@ -26,7 +26,7 @@ export default function Dashboard() {
       <div className='d-flex justify-content-between mb-5 mt-5'>
         <h1>Contacts</h1>
         <p >
-          <button style={{width:"150px"}} type="button" className="btn btn-info">Add Contact</button>
+          <Link to={routes.web.users.creation}style={{width:"150px"}} type="button" className="btn btn-info">Add Contact</Link>
         </p>
       </div>
       <div>

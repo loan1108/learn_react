@@ -4,7 +4,6 @@ import './index.css';
 import router from './router';
 import {RouterProvider} from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
-import Dashboard from './components/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

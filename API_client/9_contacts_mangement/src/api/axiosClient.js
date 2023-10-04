@@ -1,6 +1,6 @@
 import axios from "axios"; 
 const axiosClient = axios.create({ 
-    baseURL:"https://my-json-server.typicode.com/codegym-vn/mock-api-contacts/contacts", 
+    baseURL:"http://localhost:3001/users", 
     timeout:30000
 })
 axiosClient.interceptors.response.use(function(response){

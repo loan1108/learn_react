@@ -1,10 +1,15 @@
 const routes = {
-   web:{
-    dashboard:"/", 
-    users:{
-        index:"",
-        creation:"/creation"
-    }
-   }
-}
+  api: {
+    users: {
+      list: "/",
+    },
+  },
+  web: {
+    dashboard: "/",
+    users: {
+      index: "",
+      creation: "/creation",
+    },
+  },
+};
 export default routes;
