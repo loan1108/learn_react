@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Tommy"
+    },
+    {
+      "id": 2,
+      "name": "Jennie"
+    },
+    {
+      "id": 3,
+      "name": "Harry"
+    },
+    {
+      "id": 4,
+      "name": "Back update"
+    },
+    {
+      "id": 5,
+      "name": "Ben"
+    },
+    {
+      "name": "Beck update",
+      "id": 6
+    },
+    {
+      "name": "Tây Du Kí",
+      "id": 8
+    }
+  ],
+  "article": [
+    {
+      "id": 1,
+      "title": "Lorem ipsum dolor sit amet",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum dolor sit amet",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum dolor sit amet",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "title": "Lorem ipsum dolor sit amet",
+      "userId": 3
+    },
+    {
+      "id": 5,
+      "title": "Lorem ipsum dolor sit amet",
+      "userId": 4
+    },
+    {
+      "title": "Tao moi",
+      "userId": 4,
+      "id": 9
+    }
+  ]
+}

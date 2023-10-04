@@ -13,11 +13,7 @@
       "image": "https://v2.convertapi.com/d/yyxkdx7rrfbmi3gan92vn08kd14537sp",
       "email": "richard@gmail.com",
       "phone": "0912123123",
-      "user": {
-        "name": "Richard update",
-        "phone": "0912123123",
-        "email": "richard@gmail.com"
-      }
+     
     },
     {
       "id": 3,
@@ -25,11 +21,7 @@
       "image": "https://v2.convertapi.com/d/7lg49iqes6rl1r85vvzinfa2pduymb0i",
       "email": "beck@gmail.com",
       "phone": "0912123121",
-      "user": {
-        "name": "Beck update",
-        "phone": "0912123121",
-        "email": "beck@gmail.com"
-      }
+      
     },
     {
       "name": "Nguyễn Văn A",

@@ -35,16 +35,15 @@ export default function InforUpdation() {
     e.preventDefault();
     async function updateInfor() {
       await axiosClient.patch(`${userId}`, {
-        name:user.name,
-        phone:user.phone, 
-        email:user.email
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
       });
       alert("Update successfully!!");
       navigate(routes.web.dashboard);
     }
     if (window.confirm("Do you want to update this information")) {
-      updateInfor()
-     
+      updateInfor();
     }
   }
 
