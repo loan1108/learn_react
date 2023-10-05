@@ -6,17 +6,22 @@ import { v4 as uuidv4 } from "uuid";
 import { Formik } from "formik";
 import routes from "../routes";
 import { Link } from "react-router-dom";
+import Loading from "./loading";
 export default function Details() {
   const [user, setUser] = useState({
     name: "",
   });
+  const[loading, setLoading] = useState(false)
   const [article, setArticle] = useState({ title: "" });
   const { userId } = useParams();
   const [chooseArticle, setchooseArticle] = useState(null);
   const [articles, setArticles] = useState([]);
   useEffect(() => {
+    
     async function fetchData() {
+      setLoading(true)
       const data = await axiosClient.get(`${userId}?_embed=article`);
+      setLoading(false)
       setUser({ ...user, name: data.name });
       setArticles(data.article);
     }
@@ -34,11 +39,14 @@ export default function Details() {
   }
   function handleDelete(id) {
     async function deleteArticle() {
+      setLoading(true)
       await articleClient.delete(`${id}`);
+      setLoading(false)
       setArticles(articles.filter((article) => article.id !== id));
     }
     deleteArticle();
   }
+  if(loading){return <Loading/> }
   return (
     <div style={{ margin: "50px" }}>
       <div className="d-flex justify-content-between">
@@ -56,9 +64,11 @@ export default function Details() {
           enableReinitialize
           onSubmit={(values) => {
             async function updateUser() {
+              setLoading(true)
               await axiosClient.patch(`${userId}`, {
                 name: values.name,
               });
+              setLoading(false)
               alert("Update successfully! Back to home to see the change");
             }
             if (window.confirm("Do you want update this user name?")) {
@@ -93,20 +103,23 @@ export default function Details() {
           onSubmit={(values) => {
             if (chooseArticle === null) {
               async function addNewArticle() {
+                setLoading(true)
                 const data = await articleClient.post("", {
                   id: uuidv4,
                   title: values.title,
                   userId: +userId,
                 });
+                setLoading(false)
                 setArticles([...articles, data]);
               }
               addNewArticle();
             } else {
               async function updateArticle() {
+                setLoading(true)
                 const data = await articleClient.patch(`${chooseArticle}`, {
                   title: values.title,
                 });
-                console.log(data);
+                setLoading(false)
                 const newArticles = [...articles];
                 const index = newArticles.findIndex(
                   (article) => article.id === data.id

@@ -26,19 +26,18 @@
     },
     {
       "name": "Tây Du Kí",
+      "id": 7
+    },
+    {
+      "name": "Callum Small",
       "id": 8
     },
     {
-      "name": "Blaine Powell",
+      "name": "Jaden Oneil",
       "id": 9
     }
   ],
   "article": [
-    {
-      "id": 2,
-      "title": "update",
-      "userId": 1
-    },
     {
       "id": 3,
       "title": "Lorem ipsum dolor sit amet",
@@ -68,6 +67,21 @@
       "title": "them moi update",
       "userId": 1,
       "id": 11
+    },
+    {
+      "title": "afaf",
+      "userId": 5,
+      "id": 12
+    },
+    {
+      "title": "Make a new article",
+      "userId": 7,
+      "id": 13
+    },
+    {
+      "title": "theem moi",
+      "userId": 1,
+      "id": 14
     }
   ]
 }
