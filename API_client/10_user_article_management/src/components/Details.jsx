@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
 import articleClient from "../api/articleClient";
 import { v4 as uuidv4 } from "uuid";
+import { Formik } from "formik";
+import routes from "../routes";
+import { Link } from "react-router-dom";
 export default function Details() {
   const [user, setUser] = useState({
     name: "",
@@ -10,55 +13,23 @@ export default function Details() {
   const [article, setArticle] = useState({ title: "" });
   const { userId } = useParams();
   const [chooseArticle, setchooseArticle] = useState(null);
-
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const data = await axiosClient.get(`${userId}?_embed=article`);
-      console.log(data);
       setUser({ ...user, name: data.name });
       setArticles(data.article);
     }
     fetchData();
   }, []);
-  function handleChangeUser(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  }
-  function handleChangeArticle(e) {
-    setArticle({ ...article, [e.target.name]: e.target.value });
-  }
-  function handleSubmitUser(e) {
-    e.preventDefault();
-    async function updateUser() {
-      await axiosClient.patch(`${userId}`, {
-        name: user.name,
-      });
-      alert("Update successfully! Back to home to see the change");
-    }
-    if (window.confirm("Do you want update this user name?")) {
-      updateUser();
-    }
-  }
-  function handleSubmitArticle(e) {
-    e.preventDefault();
-    async function addNewArticle() {
-      const data = await articleClient.post("", {
-        id: uuidv4,
-        title: article.title,
-        userId: +userId,
-      });
-      setArticles([...articles, data]);
-    }
-    addNewArticle();
-  }
   function handleEdit(id) {
-    if (chooseArticle === null) {
-      const index= articles.findIndex(article=> article.id === id)
-      setArticle({...article, title: articles[index].title})
+    if (chooseArticle !== id) {
+      const index = articles.findIndex((article) => article.id === id);
+      setArticle({ ...article, title: articles[index].title });
       setchooseArticle(id);
     } else {
-      setArticle({...article, title:""})
       setchooseArticle(null);
+      setArticle({ ...article, title: "" });
     }
   }
   function handleDelete(id) {
@@ -70,51 +41,114 @@ export default function Details() {
   }
   return (
     <div style={{ margin: "50px" }}>
-      <h1>User Detail</h1>
-      <div>
-        <form onSubmit={handleSubmitUser}>
-          <label htmlFor="name">Name</label>
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={user.name}
-              onChange={handleChangeUser}
-            />
-            <button className="btn btn-primary" type="submit">
-              Update
-            </button>
-          </div>
-        </form>
+      <div className="d-flex justify-content-between">
+        <h1>User Detail</h1>
+        <p>
+          <Link to={routes.web.dashboard} className="btn btn-secondary">
+            Back to home
+          </Link>
+        </p>
       </div>
+
       <div>
-        <form onSubmit={handleSubmitArticle}>
-          <label htmlFor="title">Article</label>
-          <div>
-            <input
-              type="text"
-              name="title"
-              value={article.title}
-              onChange={handleChangeArticle}
-            />
-            {chooseArticle === null ? (
-              <>
-                <button className="btn btn-primary" type="submit">
-                  Add
-                </button>
-              </>
-            ) : (
-              <>
+        <Formik
+          initialValues={user}
+          enableReinitialize
+          onSubmit={(values) => {
+            async function updateUser() {
+              await axiosClient.patch(`${userId}`, {
+                name: values.name,
+              });
+              alert("Update successfully! Back to home to see the change");
+            }
+            if (window.confirm("Do you want update this user name?")) {
+              updateUser();
+            }
+          }}
+        >
+          {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="name">Name</label>
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
                 <button className="btn btn-primary" type="submit">
                   Update
                 </button>
-                <button className="btn btn-warning" type="button">
-                  Cancel
-                </button>
-              </>
-            )}
-          </div>
-        </form>
+                {errors && <p style={{ color: "red" }}>{errors.name}</p>}
+              </div>
+            </form>
+          )}
+        </Formik>
+      </div>
+      <div>
+        <Formik
+          initialValues={article}
+          enableReinitialize
+          onSubmit={(values) => {
+            if (chooseArticle === null) {
+              async function addNewArticle() {
+                const data = await articleClient.post("", {
+                  id: uuidv4,
+                  title: values.title,
+                  userId: +userId,
+                });
+                setArticles([...articles, data]);
+              }
+              addNewArticle();
+            } else {
+              async function updateArticle() {
+                const data = await articleClient.patch(`${chooseArticle}`, {
+                  title: values.title,
+                });
+                console.log(data);
+                const newArticles = [...articles];
+                const index = newArticles.findIndex(
+                  (article) => article.id === data.id
+                );
+                newArticles[index].title = data.title;
+                setArticles(newArticles);
+              }
+              updateArticle();
+            }
+          }}
+        >
+          {({ values, handleBlur, handleChange, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="title">Article</label>
+              <div>
+                <input
+                  type="text"
+                  name="title"
+                  value={values.title}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {chooseArticle === null ? (
+                  <>
+                    <button className="btn btn-primary" type="submit">
+                      Add
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className="btn btn-primary" type="submit">
+                      Update
+                    </button>
+                    <button className="btn btn-warning" type="button">
+                      Cancel
+                    </button>
+                  </>
+                )}
+              </div>
+            </form>
+          )}
+        </Formik>
       </div>
       <div>
         <table className="table">

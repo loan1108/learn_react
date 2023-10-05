@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Tommy"
+      "name": "Tommy update"
     },
     {
       "id": 2,
@@ -27,17 +27,16 @@
     {
       "name": "Tây Du Kí",
       "id": 8
+    },
+    {
+      "name": "Blaine Powell",
+      "id": 9
     }
   ],
   "article": [
     {
-      "id": 1,
-      "title": "Lorem ipsum dolor sit amet",
-      "userId": 1
-    },
-    {
       "id": 2,
-      "title": "Lorem ipsum dolor sit amet",
+      "title": "update",
       "userId": 1
     },
     {
@@ -59,6 +58,16 @@
       "title": "Tao moi",
       "userId": 4,
       "id": 9
+    },
+    {
+      "title": "Cillum omnis quia eo",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "title": "them moi update",
+      "userId": 1,
+      "id": 11
     }
   ]
 }
