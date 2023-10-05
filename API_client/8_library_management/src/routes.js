@@ -7,9 +7,10 @@ const routes ={
     web:{
         dashboard:"/",
         books:{
-            index:"/"
-        }
-
+            index:"",
+            creation:"/creation/"
+        },
+        
     }
 }
 export default routes;

@@ -1,6 +1,6 @@
 import axios from "axios"; 
 const axiosClient = axios.create({
-    baseURL:"https://my-json-server.typicode.com/codegym-vn/mock-api-books/books",
+    baseURL:"http://localhost:3001/users",
     timeout:30000
 })
 // Add a response interceptor
