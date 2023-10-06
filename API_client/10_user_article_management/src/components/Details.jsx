@@ -25,7 +25,7 @@ export default function Details() {
       setArticles(data.article);
     }
     fetchData();
-  }, []);
+  },[]);
   function handleEdit(id) {
     if (chooseArticle !== id) {
       const index = articles.findIndex((article) => article.id === id);
@@ -164,6 +164,7 @@ export default function Details() {
                       type="button"
                       onClick={() => {
                         setchooseArticle(null);
+                        setArticle({...article, title:""})
                       }}
                     >
                       Cancel
