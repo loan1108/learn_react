@@ -6,35 +6,31 @@ import Loading from "./loading";
 import routes from "../routes";
 export default function Dashboard() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] =useState(false)
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    
     async function fetchUsers() {
-      setLoading(true)
+      setLoading(true);
       const data = await axiosClient.get();
-      setLoading(false)
+      setLoading(false);
       setUsers(data);
     }
-    
     fetchUsers();
   }, []);
   function handleDelete(id) {
-    
     async function deleteUser() {
-      setLoading(true)
+      setLoading(true);
       await axiosClient.delete(`${id}`);
-      setLoading(false)
+      setLoading(false);
       setUsers(users.filter((user) => user.id !== id));
     }
     deleteUser();
   }
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
   return (
-    
-    <div style={{ margin: "50px", width: "1500px" }}>
-      <div className="d-flex justify-content-between mb-5">
+    <div style={{ margin: "50px"}}>
+      <div className="d-flex justify-content-between">
         <h1>Users</h1>
         <p>
           <Link to={routes.web.creation} className="btn btn-info">

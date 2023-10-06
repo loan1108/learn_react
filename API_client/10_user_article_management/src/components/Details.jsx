@@ -11,17 +11,16 @@ export default function Details() {
   const [user, setUser] = useState({
     name: "",
   });
-  const[loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [article, setArticle] = useState({ title: "" });
   const { userId } = useParams();
   const [chooseArticle, setchooseArticle] = useState(null);
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    
     async function fetchData() {
-      setLoading(true)
+      setLoading(true);
       const data = await axiosClient.get(`${userId}?_embed=article`);
-      setLoading(false)
+      setLoading(false);
       setUser({ ...user, name: data.name });
       setArticles(data.article);
     }
@@ -39,14 +38,16 @@ export default function Details() {
   }
   function handleDelete(id) {
     async function deleteArticle() {
-      setLoading(true)
+      setLoading(true);
       await articleClient.delete(`${id}`);
-      setLoading(false)
+      setLoading(false);
       setArticles(articles.filter((article) => article.id !== id));
     }
     deleteArticle();
   }
-  if(loading){return <Loading/> }
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div style={{ margin: "50px" }}>
       <div className="d-flex justify-content-between">
@@ -64,11 +65,11 @@ export default function Details() {
           enableReinitialize
           onSubmit={(values) => {
             async function updateUser() {
-              setLoading(true)
+              setLoading(true);
               await axiosClient.patch(`${userId}`, {
                 name: values.name,
               });
-              setLoading(false)
+              setLoading(false);
               alert("Update successfully! Back to home to see the change");
             }
             if (window.confirm("Do you want update this user name?")) {
@@ -101,33 +102,38 @@ export default function Details() {
           initialValues={article}
           enableReinitialize
           onSubmit={(values) => {
-            if (chooseArticle === null) {
-              async function addNewArticle() {
-                setLoading(true)
-                const data = await articleClient.post("", {
-                  id: uuidv4,
-                  title: values.title,
-                  userId: +userId,
-                });
-                setLoading(false)
-                setArticles([...articles, data]);
+            if (values.title === "") {
+              alert("Please fill the article name if you want to submit");
+            }
+            if (values.title !== "") {
+              if (chooseArticle === null) {
+                async function addNewArticle() {
+                  setLoading(true);
+                  const data = await articleClient.post("", {
+                    id: uuidv4,
+                    title: values.title,
+                    userId: +userId,
+                  });
+                  setLoading(false);
+                  setArticles([...articles, data]);
+                }
+                addNewArticle();
+              } else {
+                async function updateArticle() {
+                  setLoading(true);
+                  const data = await articleClient.patch(`${chooseArticle}`, {
+                    title: values.title,
+                  });
+                  setLoading(false);
+                  const newArticles = [...articles];
+                  const index = newArticles.findIndex(
+                    (article) => article.id === data.id
+                  );
+                  newArticles[index].title = data.title;
+                  setArticles(newArticles);
+                }
+                updateArticle();
               }
-              addNewArticle();
-            } else {
-              async function updateArticle() {
-                setLoading(true)
-                const data = await articleClient.patch(`${chooseArticle}`, {
-                  title: values.title,
-                });
-                setLoading(false)
-                const newArticles = [...articles];
-                const index = newArticles.findIndex(
-                  (article) => article.id === data.id
-                );
-                newArticles[index].title = data.title;
-                setArticles(newArticles);
-              }
-              updateArticle();
             }
           }}
         >
@@ -153,7 +159,13 @@ export default function Details() {
                     <button className="btn btn-primary" type="submit">
                       Update
                     </button>
-                    <button className="btn btn-warning" type="button">
+                    <button
+                      className="btn btn-warning"
+                      type="button"
+                      onClick={() => {
+                        setchooseArticle(null);
+                      }}
+                    >
                       Cancel
                     </button>
                   </>

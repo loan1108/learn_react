@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Tommy update"
+      "name": "Tommy new"
     },
     {
       "id": 2,
@@ -29,11 +29,11 @@
       "id": 7
     },
     {
-      "name": "Callum Small",
+      "name": "Ivor Fuentes update",
       "id": 8
     },
     {
-      "name": "Jaden Oneil",
+      "name": "Richard Perry update",
       "id": 9
     }
   ],
@@ -82,6 +82,16 @@
       "title": "theem moi",
       "userId": 1,
       "id": 14
+    },
+    {
+      "title": "new article update",
+      "userId": 8,
+      "id": 15
+    },
+    {
+      "title": "Deserunt culpa non l",
+      "userId": 1,
+      "id": 16
     }
   ]
 }
