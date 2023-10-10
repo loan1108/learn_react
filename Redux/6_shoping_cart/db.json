@@ -1,0 +1,7 @@
+{
+    "products":[
+        {"id":1, "title":"Ipad 4 Mini","price":500.01, "inventory":2},
+        {"id":2, "title":"T-Shirt White","price":10.99, "inventory":2},
+        {"id":3, "title":"Iphone 12 pro","price":700, "inventory":2}
+    ]
+}
