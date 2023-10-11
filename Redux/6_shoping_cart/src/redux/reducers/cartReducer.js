@@ -11,8 +11,10 @@ const cartReducer = (initialState = state, action) => {
         }else{    
             return [...initialState, {...action.payload, inventory:1}];
         }
+    case actionTypes.CHECK_OUT_SUCCEDDED:
+      return []
     default:
-      return initialState;
+      return [...initialState];
   }
 };
 export default cartReducer;

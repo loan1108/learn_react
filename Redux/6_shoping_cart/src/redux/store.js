@@ -9,5 +9,6 @@ const store = createStore(
     rootReducer,
     applyMiddleware(sagaMiddleware)
 )
-sagaMiddleware.run(productsSaga, checkoutSaga)
+sagaMiddleware.run(productsSaga)
+sagaMiddleware.run(checkoutSaga)
 export default store;

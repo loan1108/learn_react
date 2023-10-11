@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Products from './Products'
 import YourCart from './YourCart'
 import 'bootstrap/dist/css/bootstrap.css'
