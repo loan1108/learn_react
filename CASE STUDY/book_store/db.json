@@ -1,0 +1,16 @@
+{
+  "books": [
+    { "image": "./assets/img/AQ.jpg","author":"Lỗ Tấn", "title": "AQ chính truyện", "price": "80750", "star": "5" },
+    { "image": "./assets/img/truyen ngan.jpg","author":"Lỗ Tấn", "title": "Tuyển tập truyện ngắn lỗ tấn", "price": "80750", "star": "5" },
+    { "image": "./assets/img/phe phan.jpg", "author":"Lỗ Tấn","title": "Phê phán quốc dân tính", "price": "64600", "star": "4" },
+    { "image": "./assets/img/thien quan.jpg", "author":"Mặc Hương Đồng Khứu","title": "Thiên quan tứ phúc", "price": "64600", "star": "4" },
+    { "image": "./assets/img/ma dao.jpg", "author":"Mặc Hương Đồng Khứu","title": "Ma đạo tổ sư", "price": "64600", "star": "4" },
+    { "image": "./assets/img/tuoi tho du doi.jpg", "author":"Tuổi thơ dữ dội","title": "Phùng Quán", "price": "64000", "star": "4" },
+    { "image": "./assets/img/Namiya.jpg", "author":"Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya","title": "Higashino Keigo", "price": "56250", "star": "4" },
+    { "image": "./assets/img/sapien.jpg", "author":"Sapiens Lược Sử Loài Người","title": "Yuval Noah Harari", "price": "293200", "star": "4" },
+    { "image": "./assets/img/hoang tu be.jpg", "author":"Hoàng tử bé","title": "Antoine de Saint-Exupéry", "price": "80000", "star": "4" }
+], 
+"users":[
+  {"name":"Nguyễn Văn A", "address":"Thái Bình"}
+]
+}
