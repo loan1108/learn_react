@@ -3,6 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import rootReducer from "./reducers/rootReducer";
 import productsSaga from "../redux_saga/productsSaga";
 import checkoutSaga from "../redux_saga/checkoutSaga";
+import changePageSagaWatcher from "../redux_saga/changePageSagaWatcher";
 const sagaMiddleware = createSagaMiddleware(); 
 
 const store = createStore(
@@ -11,4 +12,5 @@ const store = createStore(
 )
 sagaMiddleware.run(productsSaga)
 sagaMiddleware.run(checkoutSaga)
+sagaMiddleware.run(changePageSagaWatcher)
 export default store;

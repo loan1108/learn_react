@@ -1,6 +1,5 @@
 import { put,takeLatest } from "redux-saga/effects";
 import actionTypes from "../redux/actionTypes";
-import axios from "axios";
 function* checkoutSaga() {
   console.log("test")
   yield takeLatest(actionTypes.CHECK_OUT_REQUEST, updateProductsWorker);

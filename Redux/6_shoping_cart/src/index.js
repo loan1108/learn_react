@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Shoping from "./Components/Shoping";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-
+import router from "./router";
+import { RouterProvider } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Shoping />
+      <RouterProvider router={router}/>
     </Provider>
   </React.StrictMode>
 );
