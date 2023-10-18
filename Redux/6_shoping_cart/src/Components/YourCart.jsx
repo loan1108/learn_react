@@ -30,7 +30,7 @@ export default function YourCart(props) {
                 <tr key={product.id}>
                   <td>{product.title}</td>
                   <td>{product.price}</td>
-                  <td>{product.inventory}</td>
+                  <td>{product.quantity}</td>
                 </tr>
               ))}
           </tbody>

@@ -7,8 +7,9 @@
       "author": "Lỗ Tấn",
       "price": 80750,
       "inventory": 2,
+      "quantity": 0,
       "star": 5,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 2,
@@ -17,8 +18,9 @@
       "author": "Lỗ Tấn",
       "price": 80750,
       "inventory": 2,
+      "quantity": 0,
       "star": 5,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 3,
@@ -27,8 +29,9 @@
       "author": "Lỗ Tấn",
       "price": 64600,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 4,
@@ -37,8 +40,9 @@
       "author": "Mặc Hương Đồng Khứu",
       "price": 64600,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 5,
@@ -47,8 +51,9 @@
       "author": "Mặc Hương Đồng Khứu",
       "price": 64600,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 6,
@@ -57,8 +62,9 @@
       "author": "Phùng Quán",
       "price": 64000,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học Việt Nam"
+      "category": "Văn học Việt Nam"
     },
     {
       "id": 7,
@@ -67,8 +73,9 @@
       "author": "Higashino Keigo",
       "price": 56250,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 8,
@@ -77,8 +84,9 @@
       "author": "Yuval Noah Harari",
       "price": 293200,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 9,
@@ -87,8 +95,9 @@
       "author": "Antoine de Saint-Exupéry",
       "price": 80000,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học nước ngoài"
+      "category": "Văn học nước ngoài"
     },
     {
       "id": 10,
@@ -97,8 +106,9 @@
       "author": "Đoàn Giỏi",
       "price": 68850,
       "inventory": 2,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học Việt Nam"
+      "category": "Văn học Việt Nam"
     },
     {
       "id": 11,
@@ -107,8 +117,9 @@
       "author": "Nam Cao",
       "price": 46750,
       "inventory": 10,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học Việt Nam"
+      "category": "Văn học Việt Nam"
     },
     {
       "id": 12,
@@ -117,8 +128,9 @@
       "author": "Nam Cao",
       "price": 93500,
       "inventory": 10,
+      "quantity": 0,
       "star": 4,
-      "category":"Văn học Việt Nam"
+      "category": "Văn học Việt Nam"
     },
     {
       "id": 13,
@@ -127,8 +139,33 @@
       "author": "Thích Nhất Hạnh",
       "price": 101000,
       "inventory": 5,
+      "quantity": 0,
       "star": 5,
-      "category":"Văn học Việt Nam"
+      "category": "Văn học Việt Nam"
+    }
+  ],
+  "cartProducts": [
+    {
+      "id": 2,
+      "image": "../assets/img/truyen ngan.jpg",
+      "title": "Tuyển tập truyện ngắn Lỗ Tấn",
+      "author": "Lỗ Tấn",
+      "price": 80750,
+      "inventory": 2,
+      "quantity": 1,
+      "star": 5,
+      "category": "Văn học nước ngoài"
+    },
+    {
+      "id": 1,
+      "image": "../assets/img/AQ.jpg",
+      "title": "AQ chính truyện",
+      "author": "Lỗ Tấn",
+      "price": 80750,
+      "inventory": 2,
+      "quantity": 1,
+      "star": 5,
+      "category": "Văn học nước ngoài"
     }
   ],
   "comments": [
@@ -142,7 +179,11 @@
       "body": "Đây là một tác phẩm tuyệt vời, không thể bỏ qua",
       "postId": 1
     },
-    { "id": 3, "body": "Đây là một tác phẩm tuyệt vời!!!", "postId": 10 },
+    {
+      "id": 3,
+      "body": "Đây là một tác phẩm tuyệt vời!!!",
+      "postId": 10
+    },
     {
       "id": 4,
       "body": "Đây là một tác phẩm tuyệt vời, không thể bỏ qua",
@@ -193,7 +234,15 @@
       "body": "Đây là một tác phẩm tuyệt vời, không thể bỏ qua",
       "postId": 2
     },
-    { "id": 14, "body": "Một tác phẩm hay, xuất sắc", "postId": 12 },
-    { "id": 15, "body": "Tác phẩm đáng để mua", "postId": 12 }
+    {
+      "id": 14,
+      "body": "Một tác phẩm hay, xuất sắc",
+      "postId": 12
+    },
+    {
+      "id": 15,
+      "body": "Tác phẩm đáng để mua",
+      "postId": 12
+    }
   ]
 }

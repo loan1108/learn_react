@@ -6,7 +6,7 @@ function* productsSaga(){
 }
 async function fetchProducts(param){
     console.log(param)
-    const res = await axios.get("http://localhost:3001/products", {params:{_page: param.page, _limit:param.perPage}});
+    const res = await axios.get("http://localhost:3001/products", {params:{_page: param.page}});
     return res.data;
 }
 function* productsWorker(action){
