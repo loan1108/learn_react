@@ -1,5 +1,5 @@
 import React from "react";
-import routes from "../../routes";
+import routes from "../routes";
 import { Link } from "react-router-dom";
 export default function Header() {
   function handleSubmit(e) {

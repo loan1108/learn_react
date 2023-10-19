@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Header from "../Components/Header"
+import { v4 as uuidv4 } from "uuid";
 import axiosClient from "../api/axiosClient";
-import Header from "./Home/Header";
-import { useDispatch } from "react-redux";
-import actionTypes from "../redux/actionTypes";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 export default function Detail() {
-  const dispatch = useDispatch();
-  // const products = useSelector(state=>state.productsReducer);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { productId } = useParams();
+  const [quantity, setQuantity] = useState(0);
+  const [cartProducts, setCartProducts] = useState([]);
   const [product, setProduct] = useState({
     id: 1,
     image: "",
@@ -18,25 +17,61 @@ export default function Detail() {
     author: "",
     price: 0,
     inventory: 0,
-    quantity: 0,
-    star: 0,
     category: "",
   });
+
+  useEffect(() => {
+    fetchProduct();
+    fetchCartProducts();
+  }, [productId]);
   async function fetchProduct() {
     const data = await axiosClient.get(`/products/${productId}`);
     setProduct(data);
   }
-  useEffect(() => {
-    fetchProduct();
-  }, [productId]);
+  async function fetchCartProducts() {
+    const data = await axiosClient.get("/cartProducts");
+    setCartProducts([...data]);
+  }
   function increaseQuantity() {
-    if (product.quantity < product.inventory) {
-      setProduct({ ...product, quantity: product.quantity + 1 });
+    if (quantity < product.inventory) {
+      setQuantity(quantity + 1);
     }
   }
   function decreaseQuantity() {
-    if (product.quantity > 0) {
-      setProduct({ ...product, quantity: product.quantity - 1 });
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  }
+  function addToCart(product) {
+    console.log(cartProducts);
+    console.log(product.id);
+    const index = cartProducts.findIndex(
+      (cartProduct) => cartProduct.productId === product.id
+    );
+    if (index === -1) {
+      const newCartProduct = {
+        id: uuidv4(),
+        quantity: quantity,
+        userId: 1,
+        productId: product.id,
+      };
+      setCartProducts([...cartProducts, { ...newCartProduct }]);
+      async function addToCartProductsList() {
+        await axiosClient.post("/cartProducts", {
+          ...newCartProduct,
+        });
+        navigate(routes.web.cart)
+      }
+      addToCartProductsList();
+    } else {
+      const cartProductId = cartProducts[index].id;
+      async function updateCartProductList() {
+        await axiosClient.patch(`/cartProducts/${cartProductId}`, {
+          quantity: quantity,
+        });
+        navigate(routes.web.cart)
+      }
+      updateCartProductList();
     }
   }
   return (
@@ -60,7 +95,7 @@ export default function Detail() {
             <div>
               <p
                 style={
-                  product.quantity === product.inventory
+                  quantity === product.inventory
                     ? { color: "red" }
                     : { color: "black" }
                 }
@@ -83,7 +118,7 @@ export default function Detail() {
               </button>
               <input
                 type="button"
-                value={product.quantity}
+                value={quantity}
                 min="0"
                 style={{
                   backgroundColor: "white",
@@ -103,11 +138,8 @@ export default function Detail() {
               <button
                 type="button"
                 className="btn btn-primary"
-                disabled={product.quantity === 0 ? "disabled" : ""}
-                onClick={() =>
-                  {navigate(routes.web.cart);
-                  dispatch({ type: actionTypes.ADD_TO_CART_REQUEST, payload: product })}
-                }
+                disabled={quantity === 0 ? "disabled" : ""}
+                onClick={() => addToCart(product)}
               >
                 Add to Cart
               </button>

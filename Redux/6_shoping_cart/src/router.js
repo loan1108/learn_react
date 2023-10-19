@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Detail from "./Components/Detail";
-import Payment from "./Components/Payment";
-import Dashboard from "./Components/Home/Dashboard";
-import YourCart from "./Components/YourCart";
+import Detail from "./Modules/Detail";
+import Payment from "./Modules/Payment/Payment"
+import Dashboard from "./Modules/Home/Dashboard";
+import YourCart from "./Modules/YourCart";
 import routes from "./routes";
 const router = createBrowserRouter([
   { path: routes.web.cart, element: <YourCart/> },
