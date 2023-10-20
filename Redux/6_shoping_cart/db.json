@@ -1,15 +1,87 @@
 {
   "users": [
     {
-      "id": 1,
-      "userName": "Nguyen Van C",
-      "password": "123456",
-      "address": "Cầu Giấy, Hà Nội"
+      "id": "1",
+      "userName": "Nguyễn Văn A",
+      "password": "12324",
+      "phone": "2424254",
+      "address": "Hà Nội"
+    },
+    {
+      "id": "2",
+      "userName": "Nguyễn Văn A",
+      "password": "12324",
+      "phone": "2424254",
+      "address": "Hà Nội"
+    }
+  ],
+  "receivers": [
+    {
+      "id": "f7af7657-0728-4a1b-a84b-02782a75686b",
+      "userId": "1",
+      "name": "Nguyễn Văn A",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "52aa9bdf-478a-4ead-a9c3-e710c087b90f",
+          "quantity": 2,
+          "userId": "1",
+          "productId": "11",
+          "productPrice": 46750,
+          "productTitle": "Lão Hạc"
+        },
+        {
+          "id": "7c1a14e6-933a-4110-a7f8-665e5abfb50e",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "1",
+          "productPrice": 80750,
+          "productTitle": "AQ chính truyện"
+        }
+      ]
+    },
+    {
+      "id": "9717ce20-8ab7-4633-9435-6680a6740869",
+      "userId": "1",
+      "name": "Nguyễn Văn A",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
+        }
+      ]
+    },
+    {
+      "id": "c0c91efd-53cf-44d2-8db0-00c788045a9c",
+      "userId": "1",
+      "name": "Nguyễn Văn A",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
+          "quantity": 2,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
+        }
+      ]
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "image": "../assets/img/AQ.jpg",
       "title": "AQ chính truyện",
       "author": "Lỗ Tấn",
@@ -18,7 +90,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 2,
+      "id": "2",
       "image": "../assets/img/truyen ngan.jpg",
       "title": "Tuyển tập truyện ngắn Lỗ Tấn",
       "author": "Lỗ Tấn",
@@ -27,7 +99,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 3,
+      "id": "3",
       "image": "../assets/img/phe phan.jpg",
       "title": "Phê phán quốc dân tính",
       "author": "Lỗ Tấn",
@@ -36,7 +108,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 4,
+      "id": "4",
       "image": "../assets/img/thien quan.jpg",
       "title": "Thiên quan tứ phúc",
       "author": "Mặc Hương Đồng Khứu",
@@ -45,7 +117,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 5,
+      "id": "5",
       "image": "../assets/img/ma dao.jpg",
       "title": "Ma đạo tổ sư",
       "author": "Mặc Hương Đồng Khứu",
@@ -54,7 +126,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 6,
+      "id": "6",
       "image": "../assets/img/tuoi tho du doi.jpg",
       "title": "Tuổi thơ dữ dội",
       "author": "Phùng Quán",
@@ -63,7 +135,7 @@
       "category": "Văn học Việt Nam"
     },
     {
-      "id": 7,
+      "id": "7",
       "image": "../assets/img/Namiya.jpg",
       "title": "Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya",
       "author": "Higashino Keigo",
@@ -72,7 +144,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 8,
+      "id": "8",
       "image": "../assets/img/sapien.jpg",
       "title": "Sapiens Lược Sử Loài Người",
       "author": "Yuval Noah Harari",
@@ -81,7 +153,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 9,
+      "id": "9",
       "image": "../assets/img/hoang tu be.jpg",
       "title": "Hoàng tử bé",
       "author": "Antoine de Saint-Exupéry",
@@ -90,7 +162,7 @@
       "category": "Văn học nước ngoài"
     },
     {
-      "id": 10,
+      "id": "10",
       "image": "../assets/img/dat-rung-phuong-nam.jpg",
       "title": "Đất rừng phương Nam",
       "author": "Đoàn Giỏi",
@@ -99,7 +171,7 @@
       "category": "Văn học Việt Nam"
     },
     {
-      "id": 11,
+      "id": "11",
       "image": "../assets/img/lao-hac.jpg",
       "title": "Lão Hạc",
       "author": "Nam Cao",
@@ -108,7 +180,7 @@
       "category": "Văn học Việt Nam"
     },
     {
-      "id": 12,
+      "id": "12",
       "image": "../assets/img/chi-pheo.jpg",
       "title": "Chí Phèo",
       "author": "Nam Cao",
@@ -117,7 +189,7 @@
       "category": "Văn học Việt Nam"
     },
     {
-      "id": 13,
+      "id": "13",
       "image": "../assets/img/gian.jpg",
       "title": "Giận",
       "author": "Thích Nhất Hạnh",
@@ -128,10 +200,12 @@
   ],
   "cartProducts": [
     {
-      "id": "72fa7212-ed08-4663-9309-27b2bc2151d8",
+      "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
       "quantity": 2,
-      "userId": 1,
-      "productId": 1
+      "userId": "1",
+      "productId": "2",
+      "productPrice": 80750,
+      "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
     }
   ]
 }

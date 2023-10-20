@@ -8,7 +8,7 @@ export default function Header() {
   function handleChange(e) {}
   return (
     <div className="header" style={{ marginLeft: "25px" }}>
-      <h1>Hiệu sách văn học</h1>
+      <h1><Link to={routes.web.home}>Hiệu sách văn học</Link></h1>
       <div className="d-flex justify-content-between" style={{minWidth:"720px"}}>
         <form
           style={{ margin: "auto", display: "inline-block" }}

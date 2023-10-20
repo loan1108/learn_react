@@ -43,8 +43,6 @@ export default function Detail() {
     }
   }
   function addToCart(product) {
-    console.log(cartProducts);
-    console.log(product.id);
     const index = cartProducts.findIndex(
       (cartProduct) => cartProduct.productId === product.id
     );
@@ -52,8 +50,10 @@ export default function Detail() {
       const newCartProduct = {
         id: uuidv4(),
         quantity: quantity,
-        userId: 1,
+        userId: "1",
         productId: product.id,
+        productPrice:product.price,
+        productTitle:product.title
       };
       setCartProducts([...cartProducts, { ...newCartProduct }]);
       async function addToCartProductsList() {

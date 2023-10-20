@@ -7,7 +7,8 @@ const routes = {
         home:"/", 
         detail:"/detail", 
         cart:"/cart", 
-        payment:"/payment"
+        payment:"/payment",
+        history:"/history"
     }
 }
 export default routes;

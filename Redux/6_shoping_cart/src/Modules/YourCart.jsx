@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import actionTypes from "../redux/actionTypes";
 import axiosClient from "../api/axiosClient";
+import { useNavigate } from "react-router-dom";
+import routes from "../routes";
 export default function YourCart() {
   const [cartProducts, setCartProducts] = useState([]);
-  const products = useSelector((state) => state.productsReducer);
-  const dispatch = useDispatch();
+ const navigate = useNavigate()
   useEffect(() => {
     async function fetchCartProducts() {
       const data = await axiosClient.get("/cartProducts?_expand=product");
@@ -125,14 +124,11 @@ export default function YourCart() {
       )}
       <p>Tổng: {`${total.toLocaleString()} VNĐ`}</p>
       <button
+     
       className="btn btn-primary"
         type="button"
         disabled={total === 0 ? "disabled" : ""}
-        onClick={() =>
-          dispatch({
-            type: actionTypes.CHECK_OUT_REQUEST,
-            payload: { products, cartProducts },
-          })
+        onClick={() => navigate(`${routes.web.payment}/${cartProducts[0].userId}`)
         }
       >
         Thanh toán
