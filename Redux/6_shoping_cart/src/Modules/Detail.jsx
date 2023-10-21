@@ -53,7 +53,8 @@ export default function Detail() {
         userId: "1",
         productId: product.id,
         productPrice:product.price,
-        productTitle:product.title
+        productTitle:product.title,
+        productInventory: product.inventory
       };
       setCartProducts([...cartProducts, { ...newCartProduct }]);
       async function addToCartProductsList() {
@@ -76,7 +77,7 @@ export default function Detail() {
   }
   return (
     <div style={{ margin: "50px" }}>
-      <Header />
+      {/* <Header /> */}
       <div className="container" style={{ height: "100px", marginTop: "50px" }}>
         <div className="row">
           <div className="col">
@@ -137,11 +138,13 @@ export default function Detail() {
             <div style={{ marginTop: "30px" }}>
               <button
                 type="button"
-                className="btn btn-primary"
+                className={`btn btn-${product.inventory!==0?"primary":"warning"}`}
+                style={product.inventory===0?{color:"red",fontWeight:"bold"}:{color:"black"}}
                 disabled={quantity === 0 ? "disabled" : ""}
                 onClick={() => addToCart(product)}
               >
-                Add to Cart
+                {product.inventory !==0?"Add to cart":"Sold out"}
+                
               </button>
             </div>
           </div>

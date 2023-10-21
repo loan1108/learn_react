@@ -4,20 +4,20 @@ import { useParams } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
 import { Link } from "react-router-dom";
 import routes from "../routes";
+
 export default function BuyingHistory() {
   const { userId } = useParams();
   const [boughtProducts, setBoughtProducts] = useState([]);
   useEffect(() => {
     async function fetchProduct() {
       const data = await axiosClient.get(`users/${userId}?_embed=receivers`);
-      console.log(data);
       setBoughtProducts({ ...data });
     }
     fetchProduct();
   }, []);
   return (
-    <>
-      <Header />
+    <div style={{margin:"50px"}}>
+    {boughtProducts&&<Header user={boughtProducts}/>}
       <div>
         <h2>Lịch sử mua hàng</h2>
         <table className="table">
@@ -26,6 +26,7 @@ export default function BuyingHistory() {
               <th>Sản phẩm</th>
               <th>Số lượng</th>
               <th>Tổng tiền</th>
+              <th>Thời gian mua</th>
               <th></th>
             </tr>
           </thead>
@@ -43,6 +44,9 @@ export default function BuyingHistory() {
                         {`${(boughtProduct.quantity + boughtProduct.productPrice).toLocaleString()} VNĐ`}
                       </td>
                       <td>
+                        {receiver.boughtTime}
+                      </td>
+                      <td>
                         <Link to={`${routes.web.detail}/${boughtProduct.productId}`}className="btn btn-primary" type="button">Mua lại</Link>
                       </td>
                     </tr>
@@ -51,6 +55,6 @@ export default function BuyingHistory() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

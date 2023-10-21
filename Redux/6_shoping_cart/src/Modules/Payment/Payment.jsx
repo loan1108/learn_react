@@ -13,10 +13,12 @@ export default function Payment() {
     phone: "",
     address: "",
     payment: "Tiền mặt",
-    boughtProducts:[]
+    boughtProducts: [],
   });
+
   const navigate = useNavigate();
   const { userId } = useParams();
+  const data = null;
   useEffect(() => {
     async function fetchUser() {
       const data = await axiosClient.get(
@@ -27,14 +29,14 @@ export default function Payment() {
         name: data.userName,
         phone: data.phone,
         address: data.address,
-        boughtProducts:data.cartProducts
+        boughtProducts: data.cartProducts,
       });
     }
     fetchUser();
   }, [userId]);
   return (
     <div style={{ margin: "50px" }}>
-      <Header />
+      {/* <Header /> */}
       <div>
         <h2>Thông tin người nhận</h2>
         <Formik
@@ -47,10 +49,18 @@ export default function Payment() {
               await axiosClient.post(`/receivers`, {
                 id: uuidv4(),
                 userId: userId,
+                boughtTime: new Date().toUTCString(),
                 ...receiver,
               });
             }
             addReceiver();
+            const newReceiver = { ...receiver };
+            newReceiver.boughtProducts.map((product) => {
+              axiosClient.delete(`/cartProducts/${product.id}`);
+              axiosClient.patch(`/products/${product.productId}`, {
+                inventory: product.productInventory - product.quantity,
+              });
+            });
             navigate(`${routes.web.history}/${userId}`);
           }}
         >
@@ -113,8 +123,10 @@ export default function Payment() {
                   onBlur={handleBlur}
                 />
               </div>
-              <div>
-                <button type="submit">Xác nhận</button>
+              <div style={{ marginTop: "20px" }}>
+                <button className="btn btn-primary" type="submit">
+                  Xác nhận
+                </button>
               </div>
               <br />
             </form>

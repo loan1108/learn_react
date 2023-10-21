@@ -17,64 +17,42 @@
   ],
   "receivers": [
     {
-      "id": "f7af7657-0728-4a1b-a84b-02782a75686b",
+      "id": "79967ac8-563f-4029-8a4b-f6f3591611e9",
       "userId": "1",
+      "boughtTime": "Sat, 21 Oct 2023 02:28:53 GMT",
       "name": "Nguyễn Văn A",
       "phone": "2424254",
       "address": "Hà Nội",
       "payment": "Tiền mặt",
       "boughtProducts": [
         {
-          "id": "52aa9bdf-478a-4ead-a9c3-e710c087b90f",
-          "quantity": 2,
-          "userId": "1",
-          "productId": "11",
-          "productPrice": 46750,
-          "productTitle": "Lão Hạc"
-        },
-        {
-          "id": "7c1a14e6-933a-4110-a7f8-665e5abfb50e",
+          "id": "361691d5-34da-4f7d-970a-5242d6dcb646",
           "quantity": 1,
           "userId": "1",
           "productId": "1",
           "productPrice": 80750,
-          "productTitle": "AQ chính truyện"
+          "productTitle": "AQ chính truyện",
+          "productInventory": 2
         }
       ]
     },
     {
-      "id": "9717ce20-8ab7-4633-9435-6680a6740869",
+      "id": "828d2c09-f327-466d-8ded-3b19bbe76665",
       "userId": "1",
+      "boughtTime": "Sat, 21 Oct 2023 02:34:24 GMT",
       "name": "Nguyễn Văn A",
       "phone": "2424254",
       "address": "Hà Nội",
       "payment": "Tiền mặt",
       "boughtProducts": [
         {
-          "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
+          "id": "22223981-5302-40ba-95a0-66ce05535597",
           "quantity": 1,
           "userId": "1",
-          "productId": "2",
+          "productId": "1",
           "productPrice": 80750,
-          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
-        }
-      ]
-    },
-    {
-      "id": "c0c91efd-53cf-44d2-8db0-00c788045a9c",
-      "userId": "1",
-      "name": "Nguyễn Văn A",
-      "phone": "2424254",
-      "address": "Hà Nội",
-      "payment": "Tiền mặt",
-      "boughtProducts": [
-        {
-          "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
-          "quantity": 2,
-          "userId": "1",
-          "productId": "2",
-          "productPrice": 80750,
-          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
+          "productTitle": "AQ chính truyện",
+          "productInventory": 1
         }
       ]
     }
@@ -86,7 +64,7 @@
       "title": "AQ chính truyện",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 2,
+      "inventory": 0,
       "category": "Văn học nước ngoài"
     },
     {
@@ -200,12 +178,22 @@
   ],
   "cartProducts": [
     {
-      "id": "f712817b-1a77-46ac-a2e5-7670684d83aa",
-      "quantity": 2,
+      "id": "570c4b76-05a5-4251-907d-10e1c2e82c9f",
+      "quantity": 1,
       "userId": "1",
       "productId": "2",
       "productPrice": 80750,
-      "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn"
+      "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+      "productInventory": 2
+    },
+    {
+      "id": "913cca7b-9e86-467c-8461-d253fcc23852",
+      "quantity": 1,
+      "userId": "1",
+      "productId": "3",
+      "productPrice": 64600,
+      "productTitle": "Phê phán quốc dân tính",
+      "productInventory": 2
     }
   ]
 }
