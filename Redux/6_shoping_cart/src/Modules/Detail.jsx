@@ -24,6 +24,7 @@ export default function Detail() {
     fetchProduct();
     fetchCartProducts();
   }, [productId]);
+  const loginUser = JSON.parse(window.localStorage.getItem("loginUser"))
   async function fetchProduct() {
     const data = await axiosClient.get(`/products/${productId}`);
     setProduct(data);
@@ -50,7 +51,7 @@ export default function Detail() {
       const newCartProduct = {
         id: uuidv4(),
         quantity: quantity,
-        userId: "1",
+        userId: loginUser.id,
         productId: product.id,
         productPrice:product.price,
         productTitle:product.title,
@@ -77,7 +78,7 @@ export default function Detail() {
   }
   return (
     <div style={{ margin: "50px" }}>
-      {/* <Header /> */}
+      <Header user={loginUser}/>
       <div className="container" style={{ height: "100px", marginTop: "50px" }}>
         <div className="row">
           <div className="col">

@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import routes from "../routes";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/js/dist/dropdown.js"
 export default function Header(props) {
+  const navigate = useNavigate()
   return (
     <div
       className="header d-flex justify-content-between"
-      style={{ margin: "25px" }}
+      // style={{ margin: "25px" }}
     >
       <h1>
-        <Link to={routes.web.home} style={{ textDecoration: "none", color:"black"}}>
+        <Link to={`${routes.web.home}/${props.user.id}`}style={{ textDecoration: "none", color:"black"}}>
           HIỆU SÁCH VĂN HỌC
         </Link>
       </h1>
       <div className="d-flex justify-content-between">
-        <div class="dropdown ">
+        <div className="dropdown ">
           <p
-            class="btn btn-info dropdown-toggle"
+            className="btn btn-info dropdown-toggle"
             href="#"
             role="button"
             id="dropdownMenuLink"
@@ -27,7 +29,7 @@ export default function Header(props) {
             Welcome {props.user.userName}
           </p>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <Link
             to={`${routes.web.history}/${props.user.id}`}
             className="dropdown-item"
@@ -35,6 +37,13 @@ export default function Header(props) {
           >
             Lịch sử mua hàng
           </Link>
+          <a
+            onClick={()=>{window.localStorage.removeItem("loginUser"); navigate(routes.web.login)} }
+            className="dropdown-item"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Logout
+          </a>
           </div>
         </div>
         <div>

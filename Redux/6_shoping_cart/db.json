@@ -2,15 +2,8 @@
   "users": [
     {
       "id": "1",
-      "userName": "Nguyễn Văn A",
-      "password": "12324",
-      "phone": "2424254",
-      "address": "Hà Nội"
-    },
-    {
-      "id": "2",
-      "userName": "Nguyễn Văn A",
-      "password": "12324",
+      "userName": "test_1",
+      "password": "123455",
       "phone": "2424254",
       "address": "Hà Nội"
     }
@@ -35,26 +28,6 @@
           "productInventory": 2
         }
       ]
-    },
-    {
-      "id": "828d2c09-f327-466d-8ded-3b19bbe76665",
-      "userId": "1",
-      "boughtTime": "Sat, 21 Oct 2023 02:34:24 GMT",
-      "name": "Nguyễn Văn A",
-      "phone": "2424254",
-      "address": "Hà Nội",
-      "payment": "Tiền mặt",
-      "boughtProducts": [
-        {
-          "id": "22223981-5302-40ba-95a0-66ce05535597",
-          "quantity": 1,
-          "userId": "1",
-          "productId": "1",
-          "productPrice": 80750,
-          "productTitle": "AQ chính truyện",
-          "productInventory": 1
-        }
-      ]
     }
   ],
   "products": [
@@ -64,7 +37,7 @@
       "title": "AQ chính truyện",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 0,
+      "inventory": 5,
       "category": "Văn học nước ngoài"
     },
     {
@@ -73,7 +46,7 @@
       "title": "Tuyển tập truyện ngắn Lỗ Tấn",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 2,
+      "inventory": 7,
       "category": "Văn học nước ngoài"
     },
     {
@@ -82,7 +55,7 @@
       "title": "Phê phán quốc dân tính",
       "author": "Lỗ Tấn",
       "price": 64600,
-      "inventory": 2,
+      "inventory": 20,
       "category": "Văn học nước ngoài"
     },
     {
@@ -91,7 +64,7 @@
       "title": "Thiên quan tứ phúc",
       "author": "Mặc Hương Đồng Khứu",
       "price": 64600,
-      "inventory": 2,
+      "inventory": 1,
       "category": "Văn học nước ngoài"
     },
     {
@@ -127,7 +100,7 @@
       "title": "Sapiens Lược Sử Loài Người",
       "author": "Yuval Noah Harari",
       "price": 293200,
-      "inventory": 2,
+      "inventory": 0,
       "category": "Văn học nước ngoài"
     },
     {
@@ -136,7 +109,7 @@
       "title": "Hoàng tử bé",
       "author": "Antoine de Saint-Exupéry",
       "price": 80000,
-      "inventory": 2,
+      "inventory": 1,
       "category": "Văn học nước ngoài"
     },
     {
@@ -176,24 +149,5 @@
       "category": "Văn học Việt Nam"
     }
   ],
-  "cartProducts": [
-    {
-      "id": "570c4b76-05a5-4251-907d-10e1c2e82c9f",
-      "quantity": 1,
-      "userId": "1",
-      "productId": "2",
-      "productPrice": 80750,
-      "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
-      "productInventory": 2
-    },
-    {
-      "id": "913cca7b-9e86-467c-8461-d253fcc23852",
-      "quantity": 1,
-      "userId": "1",
-      "productId": "3",
-      "productPrice": 64600,
-      "productTitle": "Phê phán quốc dân tính",
-      "productInventory": 2
-    }
-  ]
+  "cartProducts": []
 }

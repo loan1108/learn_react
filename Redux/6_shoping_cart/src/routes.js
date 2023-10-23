@@ -4,11 +4,13 @@ const routes = {
         comments:"/comments", 
     }, 
     web:{
-        home:"/", 
+        login:"/login",
+        singup:"/signup",
+        home:"", 
         detail:"/detail", 
         cart:"/cart", 
         payment:"/payment",
-        history:"/history"
+        history:"/history",
     }
 }
 export default routes;

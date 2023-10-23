@@ -3,7 +3,7 @@ import Header from "../../Components/Header";
 import { Formik } from "formik";
 import axiosClient from "../../api/axiosClient";
 import { useParams } from "react-router-dom";
-import userSchema from "../../userSchema";
+import userSchema from "../../validateSchema/userSchema"
 import { useNavigate } from "react-router-dom";
 import routes from "../../routes";
 import { v4 as uuidv4 } from "uuid";
@@ -15,10 +15,9 @@ export default function Payment() {
     payment: "Tiền mặt",
     boughtProducts: [],
   });
-
+  const loginUser = JSON.parse(window.localStorage.getItem("loginUser"))
   const navigate = useNavigate();
   const { userId } = useParams();
-  const data = null;
   useEffect(() => {
     async function fetchUser() {
       const data = await axiosClient.get(
@@ -36,7 +35,7 @@ export default function Payment() {
   }, [userId]);
   return (
     <div style={{ margin: "50px" }}>
-      {/* <Header /> */}
+      <Header user={loginUser}/>
       <div>
         <h2>Thông tin người nhận</h2>
         <Formik

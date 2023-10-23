@@ -10,7 +10,6 @@ export default function Products() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsReducer);
   const page = useSelector(state => state.choosenPageReducer.initialPage)
-  console.log(page)
   const loadProducts = () => dispatch({ type: actionTypes.LOAD_PRODUCTS, payload:{page} });
   useEffect(() => {
     loadProducts();
