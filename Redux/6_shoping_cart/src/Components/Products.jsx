@@ -1,23 +1,21 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import actionTypes from "../../redux/actionTypes";
-import { useEffect } from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-import routes from "../../routes";
+import routes from "../routes";
 import "bootstrap/dist/css/bootstrap.css";
-
-export default function Products() {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.productsReducer);
-  const page = useSelector(state => state.choosenPageReducer.initialPage)
-  const loadProducts = () => dispatch({ type: actionTypes.LOAD_PRODUCTS, payload:{page} });
-  useEffect(() => {
-    loadProducts();
-  }, []);
-  
-
+import Navbar from "./Navbar"
+import axiosClient from "../api/axiosClient";
+export default function Products(props) {
+  const [products,setProducts]= useState([])
+  useEffect(()=>{
+    async function fetchProducts(){
+      const data = await axiosClient.get("/products"); 
+      setProducts([...data])
+    }
+    fetchProducts();
+  },[])
   return (
     <div>
+      <Navbar products={products}/>
       <div className="grid-container">
         {products &&
           products.map((product) => (

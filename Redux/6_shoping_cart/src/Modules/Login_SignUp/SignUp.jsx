@@ -23,7 +23,6 @@ export default function SignUp() {
         validationSchema={singUpUserSchema}
         onSubmit={(values) => {
           const userId = uuidv4()
-          console.log(userId)
           async function createUser(){
             await axiosClient.post("/users",{...values, id:userId})
             window.localStorage.setItem("loginUser", JSON.stringify({...values,id:userId})) 

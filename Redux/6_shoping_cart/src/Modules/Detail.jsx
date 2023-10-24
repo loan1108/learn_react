@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 export default function Detail() {
   const navigate = useNavigate();
-  const { productId } = useParams();
+  const {productId} = useParams();
   const [quantity, setQuantity] = useState(0);
   const [cartProducts, setCartProducts] = useState([]);
   const [product, setProduct] = useState({

@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
+
+  function handleSubmit(){}
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light  "
@@ -17,20 +19,20 @@ export default function Navbar() {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+      <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a className="nav-link" >
               <span className="sr-only"> Văn học nước ngoài</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" >
               Văn học Việt Nam
             </a>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0 d-flex justify-content-end">
+        <form className="form-inline my-2 my-lg-0 " onSubmit={handleSubmit}>
           <input
             className="form-control mr-sm-2"
             type="search"

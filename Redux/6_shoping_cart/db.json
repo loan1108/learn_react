@@ -28,6 +28,124 @@
           "productInventory": 2
         }
       ]
+    },
+    {
+      "id": "254423fe-bbdf-4928-8914-33b08305f571",
+      "userId": "1",
+      "boughtTime": "Tue, 24 Oct 2023 06:38:16 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "d9f681ca-8ca2-42eb-bafe-b937c6ec8041",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+          "productInventory": 7
+        }
+      ]
+    },
+    {
+      "id": "a5e3a767-a063-45b4-9bff-1f4590c35b8a",
+      "userId": "1",
+      "boughtTime": "Tue, 24 Oct 2023 07:56:49 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "9bd2b969-2145-4b20-9b9f-9c2ee8793818",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+          "productInventory": 6
+        },
+        {
+          "id": "a2106dc0-45b9-40fa-aa80-26d58b6bc51a",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "6",
+          "productPrice": 64000,
+          "productTitle": "Tuổi thơ dữ dội",
+          "productInventory": 2
+        },
+        {
+          "id": "513cc365-24f4-4727-8685-2207921676ca",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "1",
+          "productPrice": 80750,
+          "productTitle": "AQ chính truyện",
+          "productInventory": 5
+        }
+      ]
+    },
+    {
+      "id": "46a74460-4d25-45b1-8f9f-d900adfa7ec3",
+      "userId": "1",
+      "boughtTime": "Tue, 24 Oct 2023 08:01:06 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "885132d2-7f89-42d8-b9d7-10b455537a07",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+          "productInventory": 5
+        }
+      ]
+    },
+    {
+      "id": "47cc5d1c-4f70-41b3-96d8-9a6897548039",
+      "userId": "1",
+      "boughtTime": "Tue, 24 Oct 2023 08:17:22 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "e96b1adc-46ad-4c0e-9380-cd4b49ce69e6",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+          "productInventory": 4
+        }
+      ]
+    },
+    {
+      "id": "a4df3530-8833-4063-a30b-8af7869c2280",
+      "userId": "1",
+      "boughtTime": "Tue, 24 Oct 2023 08:59:22 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "c6cdec79-be26-4102-a7fa-0687ce6676b0",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "4",
+          "productPrice": 64600,
+          "productTitle": "Thiên quan tứ phúc",
+          "productInventory": 1
+        }
+      ]
     }
   ],
   "products": [
@@ -38,7 +156,7 @@
       "author": "Lỗ Tấn",
       "price": 80750,
       "inventory": 5,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "2",
@@ -46,8 +164,8 @@
       "title": "Tuyển tập truyện ngắn Lỗ Tấn",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 7,
-      "category": "Văn học nước ngoài"
+      "inventory": 3,
+      "category": "aboard"
     },
     {
       "id": "3",
@@ -56,7 +174,7 @@
       "author": "Lỗ Tấn",
       "price": 64600,
       "inventory": 20,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "4",
@@ -64,8 +182,8 @@
       "title": "Thiên quan tứ phúc",
       "author": "Mặc Hương Đồng Khứu",
       "price": 64600,
-      "inventory": 1,
-      "category": "Văn học nước ngoài"
+      "inventory": 0,
+      "category": "aboard"
     },
     {
       "id": "5",
@@ -74,7 +192,7 @@
       "author": "Mặc Hương Đồng Khứu",
       "price": 64600,
       "inventory": 2,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "6",
@@ -82,8 +200,8 @@
       "title": "Tuổi thơ dữ dội",
       "author": "Phùng Quán",
       "price": 64000,
-      "inventory": 2,
-      "category": "Văn học Việt Nam"
+      "inventory": 1,
+      "category": "vietNam"
     },
     {
       "id": "7",
@@ -92,7 +210,7 @@
       "author": "Higashino Keigo",
       "price": 56250,
       "inventory": 2,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "8",
@@ -101,7 +219,7 @@
       "author": "Yuval Noah Harari",
       "price": 293200,
       "inventory": 0,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "9",
@@ -110,7 +228,7 @@
       "author": "Antoine de Saint-Exupéry",
       "price": 80000,
       "inventory": 1,
-      "category": "Văn học nước ngoài"
+      "category": "aboard"
     },
     {
       "id": "10",
@@ -119,7 +237,7 @@
       "author": "Đoàn Giỏi",
       "price": 68850,
       "inventory": 2,
-      "category": "Văn học Việt Nam"
+      "category": "vietNam"
     },
     {
       "id": "11",
@@ -128,7 +246,7 @@
       "author": "Nam Cao",
       "price": 46750,
       "inventory": 10,
-      "category": "Văn học Việt Nam"
+      "category": "vietNam"
     },
     {
       "id": "12",
@@ -137,7 +255,7 @@
       "author": "Nam Cao",
       "price": 93500,
       "inventory": 10,
-      "category": "Văn học Việt Nam"
+      "category": "vietNam"
     },
     {
       "id": "13",
@@ -146,7 +264,7 @@
       "author": "Thích Nhất Hạnh",
       "price": 101000,
       "inventory": 5,
-      "category": "Văn học Việt Nam"
+      "category": "vietNam"
     }
   ],
   "cartProducts": []
