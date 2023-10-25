@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import actionTypes from "../../redux/actionTypes";
+import actionTypes from "../redux/actionTypes";
 export default function Pagination() {
   const products = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch()

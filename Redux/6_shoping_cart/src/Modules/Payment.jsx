@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header";
+import Header from "../Components/Header";
 import { Formik } from "formik";
-import axiosClient from "../../api/axiosClient";
+import axiosClient from "../api/axiosClient";
 import { useParams } from "react-router-dom";
-import userSchema from "../../validateSchema/userSchema"
+import userSchema from "../validateSchema/userSchema";
 import { useNavigate } from "react-router-dom";
-import routes from "../../routes";
+import routes from "../routes";
 import { v4 as uuidv4 } from "uuid";
 export default function Payment() {
   const [receiver, setReceiver] = useState({

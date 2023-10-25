@@ -1,7 +1,7 @@
-import { createBrowserRouter, Outlet} from "react-router-dom";
+import { createBrowserRouter,} from "react-router-dom";
 import Detail from "./Modules/Detail";
-import Payment from "./Modules/Payment/Payment"
-import Dashboard from "./Modules/Home/Dashboard";
+import Payment from "./Modules/Payment";
+import Dashboard from "./Modules/Dashboard"
 import YourCart from "./Modules/YourCart";
 import BuyingHistory from "./Modules/BuyingHistory";
 import Login from "./Modules/Login_SignUp/Login";

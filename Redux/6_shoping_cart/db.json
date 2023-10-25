@@ -146,6 +146,46 @@
           "productInventory": 1
         }
       ]
+    },
+    {
+      "id": "7436a929-c0ae-4b5e-bbc1-647af56cad7c",
+      "userId": "1",
+      "boughtTime": "Wed, 25 Oct 2023 02:20:25 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "2b906fe1-daf0-4fd1-b789-00497e0a7679",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "1",
+          "productPrice": 80750,
+          "productTitle": "AQ chính truyện",
+          "productInventory": 5
+        }
+      ]
+    },
+    {
+      "id": "1351da7d-2821-4dfb-ae21-242cef923c97",
+      "userId": "1",
+      "boughtTime": "Wed, 25 Oct 2023 02:37:58 GMT",
+      "name": "test_1",
+      "phone": "2424254",
+      "address": "Hà Nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "56b7750b-2c15-483e-9d0a-2fa6ba954f9b",
+          "quantity": 1,
+          "userId": "1",
+          "productId": "2",
+          "productPrice": 80750,
+          "productTitle": "Tuyển tập truyện ngắn Lỗ Tấn",
+          "productInventory": 3
+        }
+      ]
     }
   ],
   "products": [
@@ -155,7 +195,7 @@
       "title": "AQ chính truyện",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 5,
+      "inventory": 4,
       "category": "aboard"
     },
     {
@@ -164,7 +204,7 @@
       "title": "Tuyển tập truyện ngắn Lỗ Tấn",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 3,
+      "inventory": 2,
       "category": "aboard"
     },
     {

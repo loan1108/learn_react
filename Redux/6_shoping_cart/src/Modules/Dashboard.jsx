@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "../../Components/Header";
-import axiosClient from "../../api/axiosClient";
-import { useParams, Outlet } from "react-router-dom";
+import Header from "../Components/Header";
+import axiosClient from "../api/axiosClient";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import routes from "../../routes";
+import routes from "../routes";
 export default function Dashboard() {
   const [user, setUser] = useState({
     id: "",
@@ -15,6 +15,7 @@ export default function Dashboard() {
   });
   const [products, setProducts] = useState([]);
   const { userId } = useParams();
+  const[searchProduct, setSearchProduct] = useState({item:""})
   useEffect(() => {
     async function fetchUser() {
       const data = await axiosClient.get(`/users/${userId}`);
@@ -28,45 +29,78 @@ export default function Dashboard() {
       });
     }
     fetchUser();
-    
     fetchProducts();
-  }, []);
+  }, [userId]);
   async function fetchProducts() {
     const data = await axiosClient.get("/products");
     setProducts([...data]);
   }
   function handleCategory(e) {
+    console.log(e.target);
     const category = e.target.getAttribute("category");
-    if(category==="all"){
+    if (category === "all") {
       fetchProducts();
-    }else{
+    } else {
       async function fetchVietNamProducts() {
-        const data = await axiosClient.get(`/products?category_like=${category}`);
+        const data = await axiosClient.get(
+          `/products?category_like=${category}`
+        );
         setProducts([...data]);
       }
       fetchVietNamProducts();
     }
-    
+  }
+  function handleChange(e){
+    setSearchProduct({...setProducts, [e.target.name]:e.target.value})
+
+  }
+  function handleSubmit(e){
+    e.preventDefault();
+    async function fetchSearchProducts() {
+      const data = await axiosClient.get(
+        `/products?q=${searchProduct.item}`
+      );
+      setProducts([...data]);
+    }
+    fetchSearchProducts()
   }
   return (
     <div style={{ margin: "50px" }}>
       <Header user={user} />
-      <div>
-        <ul>
-          <li  onClick={handleCategory}>
-            <span category="all"> Tất cả</span>
+      <div className="navbar navbar-expand-lg navbar-light bg-light" >
+        <ul className="d-flex justify-content-start" style={{ listStyleType: "none" }}>
+          <li className="nav-item"category="all" onClick={handleCategory}>
+            Tất cả
+          </li>
+          <li className="nav-item" category="vietNam" onClick={handleCategory}>
+            Văn học Việt Nam
+          </li>
+          <li className="nav-item" category="aboard" onClick={handleCategory}>
+            Văn học nước ngoài
           </li>
         </ul>
-        <ul>
-          <li onClick={handleCategory}>
-            <span category="vietNam"> Văn học Việt Nam</span>
-          </li>
-        </ul>
-        <ul>
-          <li onClick={handleCategory}>
-            <span category="aboard">Văn học nước ngoài</span>
-          </li>
-        </ul>
+        <form className="form-inline my-2 my-lg-0 " onSubmit={handleSubmit}>
+          <input
+            className="form-control mr-sm-2"
+            name="item"
+            value={searchProduct.item}
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            style={{
+              width: "500px",
+              display: "inline-block",
+              marginRight: "20px",
+            }}
+            onChange={handleChange}
+          />
+          <button
+            className="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
       </div>
       <div className="grid-container">
         {products &&
@@ -77,7 +111,7 @@ export default function Dashboard() {
                   className="card-img-top"
                   style={{ height: "15rem" }}
                   src={product.image}
-                  alt="Card image cap"
+                  alt="Card cap"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{product.title}</h5>
