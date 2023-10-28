@@ -15,7 +15,7 @@ export default function Payment() {
     payment: "Tiền mặt",
     boughtProducts: [],
   });
-  const loginUser = JSON.parse(window.localStorage.getItem("loginUser"))
+  const loginUser = JSON.parse(window.localStorage.getItem("loginUser"));
   const navigate = useNavigate();
   const { userId } = useParams();
   useEffect(() => {
@@ -35,9 +35,8 @@ export default function Payment() {
   }, [userId]);
   return (
     <div style={{ margin: "50px" }}>
-      <Header user={loginUser}/>
+      <Header user={loginUser} />
       <div>
-        <h2>Thông tin người nhận</h2>
         <Formik
           initialValues={receiver}
           enableReinitialize
@@ -64,57 +63,68 @@ export default function Payment() {
           }}
         >
           {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
-            <form onSubmit={handleSubmit}>
-              <div>
-                <p>
-                  <label htmlFor="name">Họ tên người nhận</label>
-                </p>
-                <p>
-                  <input
-                    name="name"
-                    value={values.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                </p>
+            <form className="signup" onSubmit={handleSubmit} autoComplete="off">
+              <h1>Thông tin người nhận</h1>
+
+              <div className="signup__field">
+                <label className="signup__label" htmlFor="name">
+                  Họ tên người nhận
+                </label>
+                <input
+                  className="signup__input"
+                  type="text"
+                  id="username"
+                  name="name"
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+
                 {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
               </div>
-              <div>
-                <p>
-                  <label htmlFor="phone">Số điện thoại người nhận</label>
-                </p>
-                <p>
-                  <input
-                    name="phone"
-                    value={values.phone}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                </p>
+
+              <div className="signup__field">
+                <label className="signup__label" htmlFor="phone">
+                  Số điện thoại người nhận
+                </label>
+                <input
+                  className="signup__input"
+                  type="number"
+                  name="phone"
+                  id="phone"
+                  value={values.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
 
                 {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
               </div>
-              <div>
-                <p>
-                  <label htmlFor="address">Địa chỉ người nhận</label>
-                </p>
-                <p>
-                  <input
-                    name="address"
-                    value={values.address}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                </p>
+              <div className="signup__field">
+                <label className="signup__label" htmlFor="address">
+                  Địa chỉ người nhận
+                </label>
+                <input
+                  className="signup__input"
+                  type="text"
+                  name="address"
+                  id="address"
+                  value={values.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+
                 {errors.address && (
                   <p style={{ color: "red" }}>{errors.address}</p>
                 )}
               </div>
-              <div>
-                <p>
-                  <label htmlFor="payment">Phương thức thanh toán</label>
-                </p>
+
+              <div className="signup__field">
+                <label className="signup__label" htmlFor="payment">
+                  Phương thức thanh toán
+                </label>
                 <input
+                  className="signup__input"
+                  type="text"
                   disabled
                   name="payment"
                   value={values.payment}
@@ -122,12 +132,8 @@ export default function Payment() {
                   onBlur={handleBlur}
                 />
               </div>
-              <div style={{ marginTop: "20px" }}>
-                <button className="btn btn-primary" type="submit">
-                  Xác nhận
-                </button>
-              </div>
-              <br />
+
+              <button>Đăng kí</button>
             </form>
           )}
         </Formik>

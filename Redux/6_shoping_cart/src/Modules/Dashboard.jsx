@@ -2,106 +2,144 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
 import axiosClient from "../api/axiosClient";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import routes from "../routes";
 export default function Dashboard() {
-  const [user, setUser] = useState({
-    id: "",
-    userName: "",
-    password: "",
-    phone: "",
-    address: "",
-  });
   const [products, setProducts] = useState([]);
-  const { userId } = useParams();
-  const[searchProduct, setSearchProduct] = useState({item:""})
+  const [searchProduct, setSearchProduct] = useState({ item: "" });
+  const loginUser = JSON.parse(window.localStorage.getItem("loginUser"));
+  const [choosePage,setChoosePage] = useState(1);
+  const [chooseCategory, setChooseCategory]= useState("all");
+  const [totalPages,setTotalPages] = useState(null);
   useEffect(() => {
-    async function fetchUser() {
-      const data = await axiosClient.get(`/users/${userId}`);
-      setUser({
-        ...user,
-        id: data.id,
-        userName: data.userName,
-        password: data.password,
-        phone: data.phone,
-        address: data.address,
-      });
-    }
-    fetchUser();
     fetchProducts();
-  }, [userId]);
+    fetchProductsByPage();
+    changeCategory()
+  }, [choosePage,chooseCategory]);
   async function fetchProducts() {
-    const data = await axiosClient.get("/products");
+    const data = await axiosClient.get(`/products`);
+    setTotalPages(Math.ceil(data.length/10))
     setProducts([...data]);
   }
   function handleCategory(e) {
-    console.log(e.target);
-    const category = e.target.getAttribute("category");
-    if (category === "all") {
+    // const category = e.target.getAttribute("category");
+    setChooseCategory(e.target.getAttribute("category"))
+    
+  }
+  function changeCategory(){
+    if (chooseCategory === "all") {
       fetchProducts();
     } else {
-      async function fetchVietNamProducts() {
+      async function fetchProductsByCategory() {
         const data = await axiosClient.get(
-          `/products?category_like=${category}`
+          `/products?category_like=${chooseCategory}`
         );
+        setTotalPages(Math.ceil(data.length/10))
         setProducts([...data]);
       }
-      fetchVietNamProducts();
+      fetchProductsByCategory();
     }
   }
-  function handleChange(e){
-    setSearchProduct({...setProducts, [e.target.name]:e.target.value})
-
+  function handleChange(e) {
+    setSearchProduct({ ...setProducts, [e.target.name]: e.target.value });
   }
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
     async function fetchSearchProducts() {
-      const data = await axiosClient.get(
-        `/products?q=${searchProduct.item}`
-      );
+      const data = await axiosClient.get(`/products?q=${searchProduct.item}`);
       setProducts([...data]);
     }
-    fetchSearchProducts()
+    fetchSearchProducts();
+  }
+  async function fetchProductsByPage(){
+    const data = await axiosClient.get(`/products?_page=${choosePage}&_limit=10`);
+    setProducts([...data])
+  }
+  function changePage(e){
+    setChoosePage(+e.target.getAttribute("page"))
+    fetchProductsByPage()
+  }
+  function createPage() {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <li
+          className={`page-item ${choosePage===i?"active":""}`}
+          style={{ cursor: "pointer" }}
+          key={i}
+        >
+          <a className={"page-link"}  page={i} onClick={changePage}>
+            {i}
+          </a>
+        </li>
+      );
+    }
+    return pages;
   }
   return (
     <div style={{ margin: "50px" }}>
-      <Header user={user} />
-      <div className="navbar navbar-expand-lg navbar-light bg-light" >
-        <ul className="d-flex justify-content-start" style={{ listStyleType: "none" }}>
-          <li className="nav-item"category="all" onClick={handleCategory}>
-            Tất cả
-          </li>
-          <li className="nav-item" category="vietNam" onClick={handleCategory}>
-            Văn học Việt Nam
-          </li>
-          <li className="nav-item" category="aboard" onClick={handleCategory}>
-            Văn học nước ngoài
-          </li>
-        </ul>
-        <form className="form-inline my-2 my-lg-0 " onSubmit={handleSubmit}>
-          <input
-            className="form-control mr-sm-2"
-            name="item"
-            value={searchProduct.item}
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            style={{
-              width: "500px",
-              display: "inline-block",
-              marginRight: "20px",
-            }}
-            onChange={handleChange}
-          />
+      <Header user={loginUser} />
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <span className="navbar-brand">Khám phá kho sách</span>
           <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="#navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            Search
+            <span className="navbar-toggler-icon"></span>
           </button>
-        </form>
-      </div>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className={`nav-item ${chooseCategory==="all"?"active":""}`} category="all" onClick={handleCategory}>
+                Tất cả
+              </li>
+              <li
+                className={`nav-item ${chooseCategory==="aboard"?"active":""}`}
+                category="aboard"
+                onClick={handleCategory}
+              >
+                Văn học nước ngoài
+              </li>
+
+              <li
+                className={`nav-item ${chooseCategory==="vietNam"?"active":""}`}
+                category="vietNam"
+                onClick={handleCategory}
+              >
+                Văn học Việt Nam
+              </li>
+
+            </ul>
+            <form className="d-flex" onSubmit={handleSubmit}>
+              <input
+                className="form-control mr-sm-2"
+                name="item"
+                value={searchProduct.item}
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style={{
+                  width: "500px",
+                  display: "inline-block",
+                  marginRight: "20px",
+                }}
+                onChange={handleChange}
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
       <div className="grid-container">
         {products &&
           products.map((product) => (
@@ -127,6 +165,9 @@ export default function Dashboard() {
             </div>
           ))}
       </div>
+      <nav aria-label="Page navigation example">
+        <ul className="pagination justify-content-center">{createPage()}</ul>
+      </nav>
     </div>
   );
 }

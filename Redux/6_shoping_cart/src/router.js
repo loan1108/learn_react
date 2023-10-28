@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   {path:routes.web.singup,element:<SignUp/>},
   {path:routes.web.login,element:<Login/>},
   { path: routes.web.cart, element: <YourCart/> },
-  { path: `${routes.web.home}/:userId`, element: <Dashboard/> },
+  { path: `${routes.web.home}`, element: <Dashboard/> },
   { path: `${routes.web.detail}/:productId`, element: <Detail/> },
   { path: `${routes.web.payment}/:userId`, element: <Payment/> },
   { path:`${routes.web.history}/:userId`,element:<BuyingHistory/>}

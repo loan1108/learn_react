@@ -19,7 +19,7 @@ export default function BuyingHistory() {
     <div style={{margin:"50px"}}>
     {boughtProducts&&<Header user={boughtProducts}/>}
       <div>
-        <h2>Lịch sử mua hàng</h2>
+        <h1>Lịch sử mua hàng</h1>
         <table className="table">
           <thead>
             <tr>

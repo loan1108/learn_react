@@ -6,6 +6,13 @@
       "password": "123455",
       "phone": "2424254",
       "address": "Hà Nội"
+    },
+    {
+      "id": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+      "userName": "test_2",
+      "address": "Cầu giấy, Hà nội",
+      "password": "12345",
+      "phone": 123242425
     }
   ],
   "receivers": [
@@ -186,6 +193,46 @@
           "productInventory": 3
         }
       ]
+    },
+    {
+      "id": "d9d157b7-b4a2-4881-a13a-aafd1a5318fa",
+      "userId": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+      "boughtTime": "Sat, 28 Oct 2023 06:53:52 GMT",
+      "name": "test_2",
+      "phone": 123242425,
+      "address": "Cầu giấy, Hà nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "5b41f5d8-e54b-4c1c-aa21-604d9e53edf5",
+          "quantity": 1,
+          "userId": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+          "productId": "1",
+          "productPrice": 80750,
+          "productTitle": "AQ chính truyện",
+          "productInventory": 4
+        }
+      ]
+    },
+    {
+      "id": "00c69672-683a-4141-a80f-54e3f7097a37",
+      "userId": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+      "boughtTime": "Sat, 28 Oct 2023 08:19:47 GMT",
+      "name": "test_2",
+      "phone": 123242425,
+      "address": "Cầu giấy, Hà nội",
+      "payment": "Tiền mặt",
+      "boughtProducts": [
+        {
+          "id": "630c5194-25bb-4683-b32c-0fd4de2e019c",
+          "quantity": 1,
+          "userId": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+          "productId": "1",
+          "productPrice": 80750,
+          "productTitle": "AQ chính truyện",
+          "productInventory": 3
+        }
+      ]
     }
   ],
   "products": [
@@ -195,7 +242,7 @@
       "title": "AQ chính truyện",
       "author": "Lỗ Tấn",
       "price": 80750,
-      "inventory": 4,
+      "inventory": 2,
       "category": "aboard"
     },
     {
@@ -307,5 +354,15 @@
       "category": "vietNam"
     }
   ],
-  "cartProducts": []
+  "cartProducts": [
+    {
+      "id": "e21230e0-10ba-4d30-8b97-6a2a594c8571",
+      "quantity": 1,
+      "userId": "91b610d0-290e-4a07-89c2-3c67ff0e904b",
+      "productId": "1",
+      "productPrice": 80750,
+      "productTitle": "AQ chính truyện",
+      "productInventory": 2
+    }
+  ]
 }

@@ -6,7 +6,7 @@ const routes = {
     web:{
         login:"/login",
         singup:"/signup",
-        home:"", 
+        home:"/", 
         detail:"/detail", 
         cart:"/cart", 
         payment:"/payment",

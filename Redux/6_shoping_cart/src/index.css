@@ -28,3 +28,6 @@ code {
 .nav-item{
   margin-right: 20px;
 }
+.active{
+  color:blue;
+}

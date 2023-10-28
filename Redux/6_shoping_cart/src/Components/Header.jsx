@@ -8,10 +8,9 @@ export default function Header(props) {
   return (
     <div
       className="header d-flex justify-content-between"
-      // style={{ margin: "25px" }}
     >
       <h1>
-        <Link to={`${routes.web.home}/${props.user.id}`}style={{ textDecoration: "none", color:"black"}}>
+        <Link to={routes.web.home}style={{ textDecoration: "none", color:"black"}}>
           HIỆU SÁCH VĂN HỌC
         </Link>
       </h1>
